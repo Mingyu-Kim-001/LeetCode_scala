@@ -1,0 +1,7 @@
+object Solution {
+    def findTheDifference(s: String, t: String): Char = {
+        val s_count = s.groupBy(identity).map(x => (x._1,x._2.size))
+        val t_count = t.groupBy(identity).map(x => (x._1,x._2.size))
+        t_count.filter(x => !s_count.get(x._1).isDefined || s_count.get(x._1).get != x._2).head._1
+    }
+}

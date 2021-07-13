@@ -1,0 +1,6 @@
+object Solution {
+    def shortestToChar(s: String, c: Char): Array[Int] = {
+        val idx = s.zipWithIndex.filter(x => x._1 == c).map(x => x._2)
+        (0 to s.length-1).map(i => idx.map(x => Math.abs(x-i)).min).toArray
+    }
+}
